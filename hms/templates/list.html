@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PatientList</title>
+</head>
+<body>
+<h1>Patient List</h1>
+<a href="{% url 'patient-create' %}">Add Patient</a><br><br>
+<table border="2px" bgcolor="solid black">
+  <tr bgcolor="Gray">
+    <th>Id</th>
+    <th>Name</th>
+    <th>DoctorName</th>
+     <th>Department</th>
+      <th>Status</th></tr>
+  <th></th>
+  <th></th>
+  <th></th>
+    <tr>
+      {% for patients in patient %}
+      <td>{{patients.id}}</td>
+      <td>{{patients.name}}</td>
+      <td>{{patients.doctorName}}</td>
+      <td>{{patients.department}}</td>
+      <td>{{patients.status}}</td>
+      <td><a href="{% url 'patient-detail' patients.id %}">Details</a></td>
+      <td><a href="{% url 'patient-update' patients.id %}">Update</a></td>
+      <td><a href="{% url 'patient-delete' patients.id %}">Delete</a></td>
+      </tr>
+    {% empty %}
+    <h3> This List is empty</h3>
+    {% endfor %}
+  </tr>
+</table>
+</body>
+</html>

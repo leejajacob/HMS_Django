@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Patient</title>
+</head>
+<body>
+<h1>New Patient</h1>
+<form method="post" action="">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input class="button" type="submit" value="Save">
+  <a href="{% url 'patient' %}">Go back</a>
+</form>
+
+</body>
+</html>
